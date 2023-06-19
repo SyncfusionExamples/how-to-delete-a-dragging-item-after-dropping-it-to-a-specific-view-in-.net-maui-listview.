@@ -34,7 +34,6 @@ namespace ListViewMaui
 
             if (e.Action == DragAction.Start)
             {
-                viewModel.IsVisible = true;
                 this.headerLabel.IsVisible = false;
             }
 
@@ -44,7 +43,6 @@ namespace ListViewMaui
                 var position = new Point(e.Position.X - this.ListView.Bounds.X, Math.Abs(e.Position.Y - this.ListView.Bounds.Y));
                 if ((this.Stack.Bounds.Y < position.Y) && (this.Stack.Bounds.Y + this.Stack.Height) > position.Y)
                 {
-                    viewModel.IsVisible = true;
                     this.deleteLabel.TextColor = Colors.Red;
                 }
                 else
@@ -60,7 +58,6 @@ namespace ListViewMaui
                     await Task.Delay(100);
                     viewModel.ToDoList.Remove(e.DataItem as ToDoItem);
                 }
-                viewModel.IsVisible = false;
                 this.deleteLabel.TextColor = Colors.White;
                 this.headerLabel.IsVisible = true;
             }
