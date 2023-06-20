@@ -31,10 +31,17 @@
                                ScrollBarVisibility="Never"
                            ItemSize="60"
                            BackgroundColor="#FFE8E8EC"
-			               GroupHeaderSize="50"
+                           GroupHeaderSize="50"
                            ItemsSource="{Binding ToDoList}"
                            DragStartMode="OnHold,OnDragIndicator"
                            SelectionMode="None">
+            <syncfusion:SfListView.DataSource>
+                <data:DataSource>
+                    <data:DataSource.GroupDescriptors>
+                        <data:GroupDescriptor PropertyName="CategoryName" />
+                    </data:DataSource.GroupDescriptors>
+                </data:DataSource>
+            </syncfusion:SfListView.DataSource>
             <syncfusion:SfListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <Grid>

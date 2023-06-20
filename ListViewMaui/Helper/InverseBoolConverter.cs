@@ -11,12 +11,7 @@ namespace ListViewMaui
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool)
-            {
-                return !(bool)value;
-            }
-
-            return true;
+            return !(bool)value;
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {

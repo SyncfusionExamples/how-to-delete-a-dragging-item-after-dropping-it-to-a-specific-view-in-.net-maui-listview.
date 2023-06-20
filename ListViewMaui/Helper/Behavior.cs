@@ -20,10 +20,6 @@ namespace ListViewMaui
             headerLabel = bindable.FindByName<Label>("headerLabel");
             Stack = bindable.FindByName<StackLayout>("stackLayout");
             deleteLabel = bindable.FindByName<Label>("deleteLabel");
-            ListView.DataSource.GroupDescriptors.Add(new GroupDescriptor()
-            {
-                PropertyName = "CategoryName",
-            });
             ListView.ItemDragging += ListView_ItemDragging;
             base.OnAttachedTo(bindable);
         }
@@ -66,6 +62,10 @@ namespace ListViewMaui
         protected override void OnDetachingFrom(ContentPage bindable)
         {
             ListView.ItemDragging -= ListView_ItemDragging;
+            ListView = null;
+            headerLabel = null;
+            Stack = null;
+            deleteLabel = null;
             base.OnDetachingFrom(bindable);
         }
     }
